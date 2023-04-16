@@ -34,12 +34,12 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 class WealdenBinCollectionSensor(Entity):
     """Representation of a Wealden Bin Collection sensor."""
 
-    def __init__(self, uprn, collection_type, name):
+    def __init__(self, uprn, collection_type, name, icon="mdi:trash-can"):
         """Initialize the Wealden Bin Collection sensor."""
         self._uprn = uprn
         self._collection_type = collection_type
         self._name = name
-        self._icon = "mdi:trash-can"
+        self._icon = icon
         self._state = None
 
     @property
