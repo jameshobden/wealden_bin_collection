@@ -1,0 +1,9 @@
+{
+  "domain": "wealden_bin_collection",
+  "name": "Wealden Bin Collection",
+  "documentation": "https://github.com/jameshobden/wealden_bin_collection",
+  "dependencies": [],
+  "codeowners": ["@jameshobden"],
+  "requirements": ["requests"],
+  "version": "1.0.0"
+}
