@@ -50,3 +50,18 @@ To create an automation using the Home Assistant UI, follow these steps:
 `{{ (as_timestamp(now()) + 86400) | timestamp_custom('%d/%m/%Y') in [states('sensor.black_bin_collection_date'), states('sensor.green_bin_collection_date'), states('sensor.brown_bin_collection_date')] }}
 `
 7. Add an action to send a notification, for example, using the "notify" service. 
+```
+service: notify.your_device_name
+data:
+  message: |-
+    {% set tomorrow = as_timestamp(now()) + 86400 %} {% set bin_names = {
+      states('sensor.black_bin_collection_date'): 'black',
+      states('sensor.green_bin_collection_date'): 'green',
+      states('sensor.brown_bin_collection_date'): 'brown'
+    } %} {% for bin_date, bin_name in bin_names.items() %}
+      {% if tomorrow | timestamp_custom('%d/%m/%Y') == bin_date %}
+        Put the {{ bin_name }} bin out.
+      {% endif %}
+    {% endfor %}
+  title: Bin day tomorrow!
+```
