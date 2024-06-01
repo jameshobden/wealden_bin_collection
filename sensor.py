@@ -1,6 +1,6 @@
 import logging
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from homeassistant.helpers.entity import Entity
 
@@ -16,7 +16,6 @@ COLLECTION_TYPES = {
     "brown": "Brown Bin Collection Date"
 }
 
-SCAN_INTERVAL = timedelta(days=1)  # Set the scan interval to once a day
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Wealden Bin Collection platform."""
@@ -29,7 +28,8 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     sensors = [WealdenBinCollectionSensor(uprn, collection_type, name)
                for collection_type, name in COLLECTION_TYPES.items()]
 
-    add_entities(sensors, True, SCAN_INTERVAL)
+    add_entities(sensors, True)
+
 
 class WealdenBinCollectionSensor(Entity):
     """Representation of a Wealden Bin Collection sensor."""
@@ -56,11 +56,6 @@ class WealdenBinCollectionSensor(Entity):
     def state(self):
         """Return the state of the sensor."""
         return self._state
-
-    @property
-    def icon(self):
-        """Return the icon of the sensor."""
-        return self._icon
 
     def update(self):
         """Fetch new state data for the sensor."""
