@@ -2,6 +2,12 @@
 
 This custom integration for Home Assistant retrieves bin collection dates for a given UPRN from the Wealden District Council website and displays them as sensors in Home Assistant.
 
+## IMPORTANT NOTE
+
+This integration queried the Wealden District Council website too frequently, resulting in an IP ban. Consequently, I can no longer access the website at all! To prevent this issue, I recommend adjusting the scraping frequency to once a week. Additionally, consider setting up a separate local proxy cache to further reduce risk.
+
+Please scrape responsibly to avoid upsetting anyone! 👍
+
 ## Installation
 
 1. Copy the `wealden_bin_collection` directory from this repository into the `custom_components` directory within your Home Assistant configuration directory. If the `custom_components` directory does not exist, create it.
