@@ -4,9 +4,7 @@ This custom integration for Home Assistant retrieves bin collection dates for a 
 
 ## IMPORTANT NOTE
 
-This integration queried the Wealden District Council website too frequently, resulting in an IP ban. Consequently, I can no longer access the website at all! To prevent this issue, I recommend adjusting the scraping frequency to once a week. Additionally, consider setting up a separate local proxy cache to further reduce risk.
-
-Please scrape responsibly to avoid upsetting anyone! 👍
+I recommend adjusting the scraping frequency to once a week to avoid being blocked for too many requests. Additionally, consider setting up a separate local proxy cache to further reduce risk.
 
 ## Installation
 
